@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block body %}
+  first list
+  {% for first in object_list %}
+    {{ first.title }}
+  {% endfor %}
+{% endblock body %}
