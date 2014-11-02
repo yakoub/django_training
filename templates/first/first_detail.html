@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block body %}
-  first detail 
+  <ul>
+    {% url 'first:view' object.pk as first_url %}
+    <li> <a href="{{ first_url }}edit"> Edit </a> </li>
+    <li> <a href="{{ first_url }}delete"> Delete </a>  </li>
+    <li> <a href="{% url 'first:list' %}"> List </a>  </li>
+  </ul>
   <h1> {{ object.title }} </h1>
   <p> {{ object.body }} </p>
 {% endblock body %}

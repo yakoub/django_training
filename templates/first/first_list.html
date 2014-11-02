@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
 {% block body %}
-  first list
+  <a href="{% url 'first:create' %}"> Add first </a>
+  <ul>
   {% for first in object_list %}
-    {{ first.title }}
+    {% url 'first:view' first.pk as first_url %}
+    <li> <a href="{{ first_url }}"> {{ first.title }} </a> </li>
   {% endfor %}
+  </ul>
 {% endblock body %}
