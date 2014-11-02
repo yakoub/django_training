@@ -12,7 +12,7 @@ class FirstCreate(CreateView):
 
   def get_context_data(self, **kwargs):
     context = super(FirstCreate, self).get_context_data(**kwargs)
-    context['action'] = reverse_lazy('first-create') 
+    context['action'] = reverse_lazy('first:create') 
     return context
 
 class FirstUpdate(UpdateView):
@@ -21,16 +21,16 @@ class FirstUpdate(UpdateView):
 
   def get_context_data(self, **kwargs):
     context = super(FirstUpdate, self).get_context_data(**kwargs)
-    context['action'] = reverse_lazy('first-view', kwargs={'pk': self.object.pk}) + '/edit'
+    context['action'] = reverse_lazy('first:view', kwargs={'pk': self.object.pk}) + '/edit'
     return context
 
 class FirstDelete(DeleteView):
   model = First
-  success_url = reverse_lazy('first-list')
+  success_url = reverse_lazy('list')
 
   def get_context_data(self, **kwargs):
     context = super(FirstDelete, self).get_context_data(**kwargs)
-    context['action'] = reverse_lazy('first-view', kwargs={'pk': self.object.pk}) + '/delete'
+    context['action'] = reverse_lazy('first:view', kwargs={'pk': self.object.pk}) + '/delete'
     return context
 
 class FirstView(DetailView):

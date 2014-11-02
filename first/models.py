@@ -8,4 +8,4 @@ class First(models.Model):
   body = models.TextField()
 
   def get_absolute_url(self):
-    return reverse('first-view', kwargs={'pk': self.pk})
+    return reverse('first:view', kwargs={'pk': self.pk})
