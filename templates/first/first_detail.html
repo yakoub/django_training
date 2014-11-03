@@ -9,4 +9,10 @@
   </ul>
   <h1> {{ object.title }} </h1>
   <p> {{ object.body }} </p>
+  <p> 
+    created on : {{ object.created|date }} 
+  </p>
+  <p>
+    modified on : {{ object.modified|date }} {{ object.modified|time }}
+  </p>
 {% endblock body %}

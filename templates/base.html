@@ -3,6 +3,7 @@
 {% load static from staticfiles %}
 <head>
   <meta charset="utf-8" />
+  <title> {% block title %} django1 {% endblock %} </title>
   {% block styles %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
   {% endblock %}
@@ -11,9 +12,10 @@
 </head>
 <body>
   <div id="page-wrapper">
-    <div id="page">
+    <div id="page" class="clearfi">
     {% block body %}
     {% endblock %}
+      <div style="clear:both"> </div>
     </div>
   </div>
   <pre> <!-- {% debug %} --> </pre>

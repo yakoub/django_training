@@ -13,13 +13,20 @@ section.list ul {
 }
 
 section.list li {
-  padding: 5px;
+  padding: 6px;
   margin: 2px 0;
+  border-radius: 8px;
 }
+
 section.list li:nth-child(even) {
   background-color: #ddd;
 }
 
 section.list li:nth-child(odd) {
   background-color: #bbb;
+}
+
+section.list li a {
+  font-size: 18px;
+  font-weight: bold;
 }

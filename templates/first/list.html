@@ -14,7 +14,10 @@
     <ul>
     {% for first in object_list %}
       {% url 'first:view' first.pk as first_url %}
-      <li> <a href="{{ first_url }}"> {{ first.title }} </a> </li>
+      <li> 
+        <a href="{{ first_url }}"> {{ first.title }} </a> 
+         created on : {{ first.created|date }}
+      </li>
     {% endfor %}
     </ul>
   </section>

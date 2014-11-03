@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <ul>
+    {% url 'actors:award-view' object.pk as award_url %}
+    <li> <a href="{{ award_url }}edit"> Edit </a> </li>
+    <li> <a href="{{ award_url }}delete"> Delete </a>  </li>
+    <li> <a href="{% url 'actors:award-list' %}"> List </a>  </li>
+  </ul>
+  <h1> {{ object.title }} </h1>
+  <p> {{ object.amount }} </p>
+{% endblock body %}

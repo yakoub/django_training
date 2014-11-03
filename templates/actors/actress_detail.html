@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <ul>
+    {% url 'actors:view' object.pk as actress_url %}
+    <li> <a href="{{ actress_url }}edit"> Edit </a> </li>
+    <li> <a href="{{ actress_url }}delete"> Delete </a>  </li>
+    <li> <a href="{% url 'actors:list' %}"> List </a>  </li>
+  </ul>
+  <h1> {{ object.name }} </h1>
+  <p> {{ object.bio }} </p>
+{% endblock body %}

@@ -10,5 +10,7 @@ urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name = 'home.html'), name='home'),
     url(r'^admin/', include(admin.site.urls)),
 
+    url(r'^content/?$', TemplateView.as_view(template_name = 'content.html'), name='content'),
     url(r'^content/', include('first.urls', namespace='first')),
+    url(r'^content/', include('actors.urls', namespace='actors')),
 )
