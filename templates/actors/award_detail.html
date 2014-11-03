@@ -9,4 +9,11 @@
   </ul>
   <h1> {{ object.title }} </h1>
   <p> {{ object.amount }} </p>
+
+  <header> Actresses who won it : </header>
+  <ul>
+  {% for actress in actresses %}
+      <li> <a href="{{ actress.get_absolute_url }}"> {{ actress.name }} </a> </li>
+  {% endfor %}
+  </ul>
 {% endblock body %}

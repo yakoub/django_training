@@ -43,6 +43,11 @@ class ActressDelete(DeleteView):
 #----
 class ActressView(DetailView):
   model = Actress
+
+  def get_context_data(self, **kwargs):
+    context = super(ActressView, self).get_context_data(**kwargs)
+    context['awards'] = self.object.awards.all()
+    return context
 #----
 class ActresssList(ListView):
   model = Actress
@@ -87,6 +92,11 @@ class AwardDelete(DeleteView):
 #----
 class AwardView(DetailView):
   model = Award
+
+  def get_context_data(self, **kwargs):
+    context = super(AwardView, self).get_context_data(**kwargs)
+    context['actresses'] = self.object.actress_set.all()
+    return context;
 #----
 class AwardsList(ListView):
   model = Award

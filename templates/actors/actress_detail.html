@@ -9,4 +9,13 @@
   </ul>
   <h1> {{ object.name }} </h1>
   <p> {{ object.bio }} </p>
+
+  <header> Awards won : </header>
+  <ul>
+  {% for award in awards %}
+      <li> 
+        <a href="{{ award.get_absolute_url }}"> {{ award.title }} </a>
+        ,amount: {{ award.amount }} </li>
+  {% endfor %}
+  </ul>
 {% endblock body %}
