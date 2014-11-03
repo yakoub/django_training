@@ -9,3 +9,6 @@ class First(models.Model):
 
   def get_absolute_url(self):
     return reverse('first:view', kwargs={'pk': self.pk})
+
+  def __unicode__(self):
+    return self.title

@@ -6,7 +6,14 @@ from first.models import First
 import logging
 logger = logging.getLogger('django')
 
-class FirstCreate(CreateView):
+#----
+class FirstFormMixin:
+
+  def get_template_names(self):
+    return ['first/form.html', 'form.html']
+
+#----
+class FirstCreate(FirstFormMixin, CreateView):
   model = First
   fields = ['title', 'body']
 
@@ -15,15 +22,17 @@ class FirstCreate(CreateView):
     context['action'] = reverse_lazy('first:create') 
     return context
 
-class FirstUpdate(UpdateView):
+#----
+class FirstUpdate(FirstFormMixin, UpdateView):
   model = First
   fields = ['title', 'body']
 
   def get_context_data(self, **kwargs):
     context = super(FirstUpdate, self).get_context_data(**kwargs)
-    context['action'] = reverse_lazy('first:view', kwargs={'pk': self.object.pk}) + '/edit'
+    context['action'] = reverse_lazy('first:view', kwargs={'pk': self.object.pk}) + 'edit'
     return context
 
+#----
 class FirstDelete(DeleteView):
   model = First
   success_url = reverse_lazy('list')
@@ -33,6 +42,7 @@ class FirstDelete(DeleteView):
     context['action'] = reverse_lazy('first:view', kwargs={'pk': self.object.pk}) + '/delete'
     return context
 
+#----
 class FirstView(DetailView):
   model = First
 
@@ -40,6 +50,10 @@ class FirstView(DetailView):
     logger.info('django view')
     return super(FirstView, self).get(request, args, kwargs)
 
+#----
 class FirstList(ListView):
   model = First
   paginate_by = 2
+
+  def get_template_names(self):
+    return ['first/list.html', 'list.html']

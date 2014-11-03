@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load static from staticfiles %}
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}" />
+{% endblock %}
+
+{% block body %}
+  <h1 class="title"> First form </h1>
+  <form action="{{ action }}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button> Save </button>
+  </form>
+{% endblock body %}
