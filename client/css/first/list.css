@@ -1,0 +1,25 @@
+section.list {
+  clear: both;
+}
+
+section.list header {
+  clear: both;
+}
+section.list ul {
+  list-style: none;
+  padding: 0;
+  min-width: 50%;
+  float: left;
+}
+
+section.list li {
+  padding: 5px;
+  margin: 2px 0;
+}
+section.list li:nth-child(even) {
+  background-color: #ddd;
+}
+
+section.list li:nth-child(odd) {
+  background-color: #bbb;
+}

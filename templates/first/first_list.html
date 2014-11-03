@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 
+{% load static from staticfiles %}
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/first/list.css' %}" />
+{% endblock %}
+
 {% block body %}
-  <a href="{% url 'first:create' %}"> Add first </a>
-  <ul>
-  {% for first in object_list %}
-    {% url 'first:view' first.pk as first_url %}
-    <li> <a href="{{ first_url }}"> {{ first.title }} </a> </li>
-  {% endfor %}
-  </ul>
+  <section class="list">
+    <header>
+      <a href="{% url 'first:create' %}"> Add a first </a>
+    </header>
+    <ul>
+    {% for first in object_list %}
+      {% url 'first:view' first.pk as first_url %}
+      <li> <a href="{{ first_url }}"> {{ first.title }} </a> </li>
+    {% endfor %}
+    </ul>
+  </section>
+  {% include 'pager.html' with page=page_obj pager=paginator %}
+
 {% endblock body %}

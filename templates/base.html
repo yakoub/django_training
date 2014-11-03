@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html>
+{% load static from staticfiles %}
 <head>
+  <meta charset="utf-8" />
+  {% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+  {% endblock %}
+  {% block scripts %}
+  {% endblock %}
 </head>
 <body>
-  {% block body %}
-  {% endblock body %}
+  <div id="page-wrapper">
+    <div id="page">
+    {% block body %}
+    {% endblock %}
+    </div>
+  </div>
   <pre> <!-- {% debug %} --> </pre>
 </body>
 </html>

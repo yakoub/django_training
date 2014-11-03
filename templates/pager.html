@@ -1,0 +1,11 @@
+<nav class="pager">
+  <header> page {{ page.number }} out of {{ pager.num_pages }} </header>
+  <ul>
+  {% if page.has_next %}
+    <li> <a href = "?page={{ page.next_page_number }}"> next </a> </li>
+  {% endif %}
+  {% if page.has_previous %}
+    <li> <a href = "?page={{ page.previous_page_number }}"> previous </a> </li>
+  {% endif %}
+  </ul>
+</nav>

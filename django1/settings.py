@@ -89,3 +89,6 @@ USE_TZ = True
 
 STATIC_URL = '/django-static-1/'
 STATIC_ROOT = '/srv/sites/django1/static_files'
+STATICFILES_DIRS = (
+  '/srv/sites/django1/client',
+)

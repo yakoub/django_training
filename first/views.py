@@ -37,8 +37,9 @@ class FirstView(DetailView):
   model = First
 
   def get(self, request, *args, **kwargs):
-    logger.error('django view')
+    logger.info('django view')
     return super(FirstView, self).get(request, args, kwargs)
 
 class FirstList(ListView):
   model = First
+  paginate_by = 2

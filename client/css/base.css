@@ -1,0 +1,36 @@
+body {
+  font-family: Georgia, "Times New Roman";
+}
+
+#page-wrapper {
+  width: 100%;
+}
+
+#page {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #eee;
+  padding: 10px 1%;
+}
+
+/* pager */
+
+nav.pager {
+  background-color: #eee;
+  clear: both;
+}
+
+nav.pager header {
+  font-weight: bold;
+  float: left;
+}
+
+nav.pager ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav.pager ul li {
+  display: inline;
+  padding: 0 5px;
+}
