@@ -58,8 +58,7 @@ class ActressList(ListView):
 
   def get_queryset(self):
     queryset = super(ActressList, self).get_queryset()
-    queryset.prefetch_related('awards')
-    return queryset
+    return queryset.prefetch_related('awards')
 
 #---- Award
 class AwardCreate(CreateView):
@@ -111,5 +110,4 @@ class AwardsList(ListView):
 
   def get_queryset(self):
     queryset = super(AwardsList, self).get_queryset()
-    queryset.prefetch_related('actress_set')
-    return queryset
+    return queryset.prefetch_related('actress_set')
