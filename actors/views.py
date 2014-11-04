@@ -49,13 +49,17 @@ class ActressView(DetailView):
     context['awards'] = self.object.awards.all()
     return context
 #----
-class ActresssList(ListView):
+class ActressList(ListView):
   model = Actress
   paginate_by = 4
 
   def get_template_names(self):
     return ['actors/list.html', 'list.html']
 
+  def get_queryset(self):
+    queryset = super(ActressList, self).get_queryset()
+    queryset.prefetch_related('awards')
+    return queryset
 
 #---- Award
 class AwardCreate(CreateView):
@@ -104,3 +108,8 @@ class AwardsList(ListView):
 
   def get_template_names(self):
     return ['actors/award_list.html', 'list.html']
+
+  def get_queryset(self):
+    queryset = super(AwardsList, self).get_queryset()
+    queryset.prefetch_related('actress_set')
+    return queryset

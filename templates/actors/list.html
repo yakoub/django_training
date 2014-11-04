@@ -1,8 +1,24 @@
 {% extends "list.html" %}
 
 {% block title %} Actresses list {% endblock %}
+
 {% block list_header %}
 <header>
   <a href="{% url 'actors:create' %}"> Add an actress </a>
 </header>
+{% endblock %}
+
+{% block list_items %}
+  <ul class="top">
+  {% for object in object_list %}
+    <li> 
+      <a href="{{ object.get_absolute_url }}"> {{ object.name }} </a> 
+      <ul>
+      {% for award in object.awards.all %}
+        <li> {{ award.title }} </li>
+      {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+  </ul>
 {% endblock %}

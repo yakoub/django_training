@@ -3,7 +3,7 @@ from django.conf.urls import patterns,url
 from actors import views
 
 urlpatterns = patterns('',
-  url(r'actor/$', views.ActresssList.as_view(), name='list'),
+  url(r'actor/$', views.ActressList.as_view(), name='list'),
   url(r'actor/(?P<pk>\d+)/$', views.ActressView.as_view(), name='view'),
   url(r'actor/create/$', views.ActressCreate.as_view(), name='create'),
   url(r'actor/(?P<pk>\d+)/edit$', views.ActressUpdate.as_view()),

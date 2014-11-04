@@ -5,3 +5,18 @@
   <a href="{% url 'actors:award-create' %}"> Add an Award </a>
 </header>
 {% endblock %}
+
+{% block list_items %}
+  <ul class="top">
+  {% for object in object_list %}
+    <li> 
+      <a href="{{ object.get_absolute_url }}"> {{ object.title }} </a> 
+      <ul>
+      {% for actress in object.actress_set.all %}
+        <li> {{ actress.name }} </li>
+      {% endfor %}
+      </ul>
+    </li>
+  {% endfor %}
+  </ul>
+{% endblock %}

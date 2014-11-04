@@ -10,11 +10,14 @@
   <section class="list">
     {% block list_header %}
     {% endblock %}
-    <ul>
-    {% for object in object_list %}
-      <li> <a href="{{ object.get_absolute_url }}"> {{ object }} </a> </li>
-    {% endfor %}
-    </ul>
+
+    {% block list_items %}
+      <ul class="top">
+      {% for object in object_list %}
+        <li> <a href="{{ object.get_absolute_url }}"> {{ object }} </a> </li>
+      {% endfor %}
+      </ul>
+    {% endblock %}
   </section>
   {% include 'pager.html' with page=page_obj pager=paginator %}
 

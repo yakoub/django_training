@@ -11,7 +11,7 @@
     <header>
       <a href="{% url 'first:create' %}"> Add a first </a>
     </header>
-    <ul>
+    <ul class="top">
     {% for first in object_list %}
       {% url 'first:view' first.pk as first_url %}
       <li> 
