@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static from staticfiles %}
+{% block styles %}
+  {{ block.super }}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/list.css' %}" />
+{% endblock %}
+{% block scripts %}
+  <script type="text/javascript" 
+    src="{% static 'bower_components/angular/angular.js' %}">
+    </script>
+  <script type="text/javascript" 
+    src="{% static 'bower_components/angular-route/angular-route.js' %}">
+    </script>
+  <script type="text/javascript" 
+    src="{% static 'js/articles.js' %}"> 
+    </script>
+{% endblock %}
+
+{% block body %}
+<section ng-app="Articles">
+  <section class="list">
+    {% block list_header %}
+    {% endblock %}
+<a href="#content/test"> test </a>
+    {% block list_items %}
+      <ul class="top">
+      {% for object in object_list %}
+        <li> <a href="{{ object.get_absolute_url }}"> {{ object }} </a> </li>
+      {% endfor %}
+      </ul>
+    {% endblock %}
+  </section>
+  {% include 'pager.html' with page=page_obj pager=paginator %}
+  <section class="article-view">
+    <div ng-view> </div>
+  </section>
+</section>
+{% endblock body %}

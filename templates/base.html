@@ -12,12 +12,14 @@
 </head>
 <body>
   <div id="page-wrapper">
-    <div id="page" class="clearfi">
+    <div id="page" class="clearfix">
+    <header> <a href="/"> Homepage </a> </header>
     {% block body %}
     {% endblock %}
       <div style="clear:both"> </div>
     </div>
   </div>
-  <pre> <!-- {% debug %} --> </pre>
+  <pre> <!-- {# %debug% #} --> </pre>
+  <pre> {{inspect}} </pre>
 </body>
 </html>

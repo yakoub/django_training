@@ -1,0 +1,11 @@
+<ul>
+  {% url 'actors:view' object.pk as actress_url %}
+  <li> <a href="{% url 'articles:update' object.pk %}"> Edit </a> </li>
+  <li> <a href="{% url 'articles:delete' object.pk %} "> Delete </a>  </li>
+</ul>
+<h1> {{ object.title }} </h1>
+{% for paragraph in paragraphs %}
+  <p> 
+    {{ paragraph.content }}
+  </p>
+{% endfor %}
