@@ -21,6 +21,7 @@
 <section ng-app="Articles">
   <section class="list">
     {% block list_header %}
+      <a href="{% url 'articles:create' %}"> Add an article </a>
     {% endblock %}
     {% block list_items %}
       <ul class="top">
