@@ -13,4 +13,5 @@ urlpatterns = patterns('',
     url(r'^content/?$', TemplateView.as_view(template_name = 'content.html'), name='content'),
     url(r'^content/', include('first.urls', namespace='first')),
     url(r'^content/', include('actors.urls', namespace='actors')),
+    url(r'^content/', include('article.urls', namespace='articles')),
 )
