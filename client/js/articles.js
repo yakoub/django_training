@@ -1,19 +1,13 @@
 var Articles = angular.module('Articles', ['ngRoute']);
 
 function router($routeProvider) {
+
   route = {
     templateUrl: function(params){
-      return '/django1/content/partials/articles/slider/' + params.pk;
+      return '/django1/content/partials/articles/' + params.pk;
     },
   };
-  $routeProvider.when('/content/slider/:pk', route);
-  
-  route = {
-    templateUrl: function(params){
-      return '/django1/content/partials/articles/scroller/' + params.pk;
-    },
-  };
-  $routeProvider.when('/content/scroller/:pk', route);
+  $routeProvider.when('/content/:pk', route);
  
   //$routeProvider.otherwise({redirectTo: '/content'});
 }
