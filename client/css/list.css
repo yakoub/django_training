@@ -30,3 +30,7 @@ section.list li a {
   font-size: 18px;
   font-weight: bold;
 }
+
+section.article-view {
+  clear: both;
+}

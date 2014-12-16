@@ -14,7 +14,10 @@ function router($routeProvider) {
 
 Articles.config(['$routeProvider', router]);
 
-Articles.controller('first', function($scope) {
-  $scope.list = [1,2,3,4,5]; 
+Articles.controller('Scroller', function($scope) {
+  $scope.type = 'Scroller'; 
 });
 
+Articles.controller('Slider', function($scope) {
+  $scope.type = 'Slider'; 
+});
