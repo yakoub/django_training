@@ -1,6 +1,6 @@
 var Articles = angular.module('Articles', ['ngRoute']);
 
-function router($routeProvider) {
+Articles.router = function($routeProvider) {
 
   route = {
     templateUrl: function(params){
@@ -12,7 +12,7 @@ function router($routeProvider) {
   //$routeProvider.otherwise({redirectTo: '/content'});
 }
 
-Articles.config(['$routeProvider', router]);
+Articles.config(['$routeProvider', Articles.router]);
 
 Articles.controller('Scroller', function($scope) {
   $scope.type = 'Scroller'; 
