@@ -8,6 +8,7 @@ class First(models.Model):
   body = models.TextField()
   created = models.DateField(auto_now_add=True)
   modified = models.DateTimeField(auto_now=True)
+  ip = models.GenericIPAddressField(protocol='IPv4')
 
   def get_absolute_url(self):
     return reverse('first:view', kwargs={'pk': self.pk})

@@ -25,7 +25,7 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 TEMPLATE_DIRS = (
-  "/srv/sites/django1/templates",
+  "/srv/django1/templates",
 )
 
 ALLOWED_HOSTS = []
@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'first',
     'actors',
+    'article',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,10 +65,10 @@ WSGI_APPLICATION = 'django1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'django_db1',
         'USER': 'django',
-        'HOST': 'localhost',
+        'HOST': '',
     }
 }
 
@@ -89,7 +90,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/django-static-1/'
-STATIC_ROOT = '/srv/sites/django1/static_files'
+STATIC_ROOT = '/srv/django1/static_files'
 STATICFILES_DIRS = (
-  '/srv/sites/django1/client',
+  '/srv/django1/client',
 )

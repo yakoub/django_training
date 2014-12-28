@@ -15,7 +15,7 @@ class FirstFormMixin:
 #----
 class FirstCreate(FirstFormMixin, CreateView):
   model = First
-  fields = ['title', 'body']
+  fields = ['title', 'body', 'ip']
 
   def get_context_data(self, **kwargs):
     context = super(FirstCreate, self).get_context_data(**kwargs)
