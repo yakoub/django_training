@@ -1,3 +1,4 @@
+<section ng-controller="{{ controller }}">
 <ul>
   {% url 'actors:view' object.pk as actress_url %}
   <li> <a href="{% url 'articles:update' object.pk %}"> Edit </a> </li>
@@ -9,3 +10,8 @@
     {{ paragraph.content }}
   </p>
 {% endfor %}
+
+{% verbatim %}
+  <p> View mode = {{ type }} <p>
+{% endverbatim %}
+</section>

@@ -100,7 +100,8 @@ class ArticleView(DetailView):
 
   def get_context_data(self, **kwargs):
     context = super(ArticleView, self).get_context_data(**kwargs)
-    context['paragraphs'] = self.object.paragraph_set.all()
+    context['paragraphs'] = self.object.paragraph_set.all().order_by('ordinal')
+    context['controller'] = 'Scroller' if self.object.view_mode == 'scroller' else 'Slider'
     return context;
 #----
 class ArticleList(ListView):
