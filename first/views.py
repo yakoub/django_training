@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse_lazy
 from first.models import First
 import logging
 logger = logging.getLogger('django')
+import json
 
 #----
 class FirstFormMixin:
@@ -15,17 +16,18 @@ class FirstFormMixin:
 #----
 class FirstCreate(FirstFormMixin, CreateView):
   model = First
-  fields = ['title', 'body', 'ip']
+  fields = ['title', 'body', 'ip', 'mpoly'] #
 
   def get_context_data(self, **kwargs):
     context = super(FirstCreate, self).get_context_data(**kwargs)
     context['action'] = reverse_lazy('first:create') 
+    context['jsconfig'] = json.dumps({'count':4, 'id': 'item3'})
     return context
 
 #----
 class FirstUpdate(FirstFormMixin, UpdateView):
   model = First
-  fields = ['title', 'body']
+  fields = ['title', 'body', 'mpoly']
 
   def get_context_data(self, **kwargs):
     context = super(FirstUpdate, self).get_context_data(**kwargs)
