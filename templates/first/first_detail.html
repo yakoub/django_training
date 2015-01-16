@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block body %}
   <ul>
@@ -7,15 +8,33 @@
     <li> <a href="{{ first_url }}delete"> Delete </a>  </li>
     <li> <a href="{% url 'first:list' %}"> List </a>  </li>
   </ul>
+  <ul>
+    {% for code, name in language_switch %}
+      {% language code %}
+      <li>
+        <a href="{% url 'first:view' object.pk %}"> {{ name }} </a>
+      </li>
+      {% endlanguage %}
+    {% endfor %}
+  </ul>
   <h1> {{ object.title }} </h1>
   <p> {{ object.body }} </p>
   <p> 
-    created on : {{ object.created|date }} 
+    {% trans "created on" %} : {{ object.created|date }} 
   </p>
   <p>
-    modified on : {{ object.modified|date }} {{ object.modified|time }}
+    {% trans "modified on" %} : {{ object.modified|date }} {{ object.modified|time }}
   </p>
   <p>
     ip : {{ object.ip }}
+  </p>
+  <p>
+    {% trans "polygon" %} : {{ object.mpoly }}
+  </p>
+  <p>
+    {% trans "geom type" %} : {{ object.mpoly.geom_type }}
+  </p>
+  <p>
+    {% trans "type" %}: {{ type }}
   </p>
 {% endblock body %}

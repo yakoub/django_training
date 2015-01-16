@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView, ListView
 from django.core.urlresolvers import reverse_lazy
+from django.conf import settings
+from django.utils import translation
 from first.models import First
 import logging
 logger = logging.getLogger('django')
@@ -48,6 +50,18 @@ class FirstDelete(DeleteView):
 class FirstView(DetailView):
   model = First
 
+  def get_object(self, queryset=None):
+    logger.error('kwargs type = {0}'.format(type(self.kwargs)))
+    return super(FirstView, self).get_object(queryset)
+    
+  def get_context_data(self, **kwargs):
+    context = super(FirstView, self).get_context_data(**kwargs)
+    context['type'] = repr(self.object.mpoly.__class__)
+    current_language = translation.get_language()
+    language_switch = [(code, name) for code, name in settings.LANGUAGES if code != current_language]
+    context['language_switch'] = language_switch 
+    return context
+    
   def get(self, request, *args, **kwargs):
     logger.info('django view')
     return super(FirstView, self).get(request, args, kwargs)

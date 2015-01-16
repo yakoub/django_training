@@ -1,0 +1,46 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# , 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-15 13:55+0200\n"
+"PO-Revision-Date: 2015-01-15 13:42+0200\n"
+"Last-Translator: \n"
+"Language-Team: American English <kde-i18n-doc@kde.org>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: django1/settings.py:84
+msgid "English"
+msgstr "אנגלית"
+
+#: django1/settings.py:85
+msgid "Hebrew"
+msgstr "עברית"
+
+#: templates/first/first_detail.html:14
+msgid "created on"
+msgstr "נוצר ב "
+
+#: templates/first/first_detail.html:17
+msgid "modified on"
+msgstr "עודכן ב"
+
+#: templates/first/first_detail.html:23
+msgid "polygon"
+msgstr "פוליגון"
+
+#: templates/first/first_detail.html:26
+msgid "geom type"
+msgstr ""
+
+#: templates/first/first_detail.html:29
+msgid "type"
+msgstr "סוג"
