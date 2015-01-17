@@ -11,7 +11,11 @@
   {% block scripts %}
   {% endblock %}
 </head>
-<body>
+{% if LANGUAGE_BIDI %}
+<body dir="rtl">
+{% else %}
+<body dir="ltr">
+{% endif %}
   <div id="page-wrapper">
     <div id="page" class="clearfix">
     <header> <a href="/"> Homepage </a> </header>
