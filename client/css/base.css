@@ -1,5 +1,9 @@
-body {
-  font-family: 'Fjalla One', sans-serif, Georgia, "Times New Roman";
+body.en {
+  font-family: "Fjalla One", sans-serif, Georgia, "Times New Roman";
+}
+
+body.he {
+  font-family: "Open Sans Hebrew";
 }
 
 #page-wrapper {
@@ -26,7 +30,7 @@ nav.pager {
 
 nav.pager header {
   font-weight: bold;
-  float: left;
+  float: left; /*RTL*/
 }
 
 nav.pager ul {
