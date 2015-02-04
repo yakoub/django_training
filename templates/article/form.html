@@ -4,6 +4,20 @@
 {% block styles %}
   {{ block.super }}
   <link rel="stylesheet" type="text/css" href="{% static 'css/form.css' %}" />
+
+<style>
+  span.anchor {
+    padding: 5px;
+    background: gray;
+  }
+</style>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  <script type="text/javascript" 
+      src="{% static 'js/drag.js' %}">
+      </script>
 {% endblock %}
 
 {% block body %}
@@ -11,9 +25,34 @@
     {% csrf_token %}
     {{ article.as_p }}
     {{ paragraphs.management_form }}
+    <div class="ordering">
     {% for form in paragraphs %}
-      <p> {{ form }} </p>
+      <div class="drag-wrapper">
+        <div>
+          {{ form.content.errors }}
+          {{ form.content }}
+          </div>
+        <div>
+          {{ form.ORDER.errors }}
+          {{ form.ORDER }}
+          {{ form.DELETE.errors }}
+          {{ form.DELETE }}
+          <span draggable="true" class="anchor" style="cursor: move;">
+            {{ forloop.counter }}
+            </span>
+          </div>
+        {% for hidden in form.hidden_fields %}
+          {{ hidden }}
+        {% endfor %}
+        </div>
     {% endfor %}
+      <button class="add-paragraph"> Add new paragraph </button>
+      </div>
     <button> Save </button>
   </form>
+  <script type="text/javascript">
+    var ordering = new DragOrdering('.ordering');
+    document.querySelector('.ordering button.add-paragraph')
+      .addEventListener('click', formset_add);
+  </script>
 {% endblock body %}
