@@ -1,4 +1,4 @@
-from django.contrib.gis import admin
-from models import First
+from django.contrib import admin
+from .models import First
 
-admin.site.register(First, admin.GeoModelAdmin)
+admin.site.register(First)

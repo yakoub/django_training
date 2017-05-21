@@ -26,15 +26,6 @@
     {% trans "modified on" %} : {{ object.modified|date }} {{ object.modified|time }}
   </p>
   <p>
-    ip : {{ object.ip }}
-  </p>
-  <p>
-    {% trans "polygon" %} : {{ object.mpoly }}
-  </p>
-  <p>
-    {% trans "geom type" %} : {{ object.mpoly.geom_type }}
-  </p>
-  <p>
     {% trans "type" %}: {{ type }}
   </p>
 {% endblock body %}

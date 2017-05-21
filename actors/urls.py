@@ -1,8 +1,8 @@
-from django.conf.urls import patterns,url
+from django.conf.urls import url
 
 from actors import views
 
-urlpatterns = patterns('',
+urlpatterns = [
   url(r'actor/$', views.ActressList.as_view(), name='list'),
   url(r'actor/(?P<pk>\d+)/$', views.ActressView.as_view(), name='view'),
   url(r'actor/create/$', views.ActressCreate.as_view(), name='create'),
@@ -14,4 +14,4 @@ urlpatterns = patterns('',
   url(r'award/create/$', views.AwardCreate.as_view(), name='award-create'),
   url(r'award/(?P<pk>\d+)/edit$', views.AwardUpdate.as_view()),
   url(r'award/(?P<pk>\d+)/delete$', views.AwardDelete.as_view()),
-)
+]

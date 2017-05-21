@@ -1,4 +1,4 @@
-from django.contrib.gis.db import models
+from django.db import models
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -9,9 +9,6 @@ class First(models.Model):
   body = models.TextField(_('Body'))
   created = models.DateField(_('Created'), auto_now_add=True)
   modified = models.DateTimeField(_('Modified'), auto_now=True)
-  ip = models.GenericIPAddressField(protocol='IPv4')
-  mpoly = models.MultiPolygonField(_('Polygon'), null=True, blank=True)
-  objects = models.GeoManager()
 
   def get_absolute_url(self):
     return reverse('first:view', kwargs={'pk': self.pk})

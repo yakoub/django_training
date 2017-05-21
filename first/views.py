@@ -18,7 +18,7 @@ class FirstFormMixin:
 #----
 class FirstCreate(FirstFormMixin, CreateView):
   model = First
-  fields = ['title', 'body', 'ip', 'mpoly'] #
+  fields = ['title', 'body'] #
 
   def get_context_data(self, **kwargs):
     context = super(FirstCreate, self).get_context_data(**kwargs)
@@ -29,7 +29,7 @@ class FirstCreate(FirstFormMixin, CreateView):
 #----
 class FirstUpdate(FirstFormMixin, UpdateView):
   model = First
-  fields = ['title', 'body', 'mpoly']
+  fields = ['title', 'body']
 
   def get_context_data(self, **kwargs):
     context = super(FirstUpdate, self).get_context_data(**kwargs)
@@ -56,7 +56,6 @@ class FirstView(DetailView):
     
   def get_context_data(self, **kwargs):
     context = super(FirstView, self).get_context_data(**kwargs)
-    context['type'] = repr(self.object.mpoly.__class__)
     current_language = translation.get_language()
     language_switch = [(code, name) for code, name in settings.LANGUAGES if code != current_language]
     context['language_switch'] = language_switch 

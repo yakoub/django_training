@@ -22,13 +22,25 @@ SECRET_KEY = '*kl731+dktu-%fb^e2vysr=ih87%d2+r^biaod*0!cq7je(8au'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['/srv/sites/django1/templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
-TEMPLATE_DIRS = (
-  "/srv/django1/templates",
-)
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'django1.yakoub.lan'
+]
 
 
 # Application definition
@@ -40,7 +52,6 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.gis',
     'first',
     'actors',
     'article',
@@ -67,7 +78,7 @@ WSGI_APPLICATION = 'django1.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django_db1',
         'USER': 'django',
         'HOST': '',
@@ -86,7 +97,7 @@ LANGUAGES = (
 )
 
 LOCALE_PATHS = (
-  '/srv/django1/locale',
+  '/srv/sites/django1/locale',
 )
 
 TIME_ZONE = 'UTC'
@@ -102,7 +113,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/django-static-1/'
-STATIC_ROOT = '/srv/django1/static_files'
+STATIC_ROOT = '/srv/sites/django1/static_files'
 STATICFILES_DIRS = (
-  '/srv/django1/client',
+  '/srv/sites/django1/client',
 )
+
