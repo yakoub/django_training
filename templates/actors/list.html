@@ -4,7 +4,10 @@
 
 {% block list_header %}
 <header>
-  <a href="{% url 'actors:create' %}"> Add an actress </a>
+  <ul>
+    <li> <a href="{% url 'actors:create' %}"> Add an actress </a> </li>
+    <li> <a href="{% url 'actors:award-create' %}"> Add an award</a> </li>
+  </ul>
 </header>
 {% endblock %}
 
