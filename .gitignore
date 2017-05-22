@@ -1,1 +1,3 @@
 *.pyc
+manage.py
+static_files
