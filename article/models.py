@@ -20,6 +20,6 @@ class Article(models.Model):
   def get_absolute_url(self):
     return reverse('articles:list') + '#content/{0}'.format(self.pk) 
 
-  def __unicode__(self):
+  def __str__(self):
     return self.title
 

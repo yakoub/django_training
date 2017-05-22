@@ -10,7 +10,7 @@ class Award(models.Model):
   def get_absolute_url(self):
     return reverse('actors:award-view', kwargs= {'pk': self.pk})
 
-  def __unicode__(self):
+  def __str__(self):
     return self.title
 
 class Actress(models.Model):
@@ -21,6 +21,6 @@ class Actress(models.Model):
   def get_absolute_url(self):
     return reverse('actors:view', kwargs= {'pk': self.pk})
 
-  def __unicode__(self):
+  def __str__(self):
     return self.name
 
