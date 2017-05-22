@@ -2,7 +2,7 @@ from django.views.generic.edit import DeleteView, FormView
 from django.views.generic import DetailView, ListView
 from django.forms import ModelForm
 from django.forms.models import inlineformset_factory, modelform_factory, modelformset_factory
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.core.urlresolvers import reverse_lazy
@@ -34,7 +34,7 @@ def ArticleCreate(request):
   }
   paragraphFormset = modelformset_factory(Paragraph, **formset_config)
 
-  context = RequestContext(request)
+  context = {} 
   context['action'] = reverse_lazy('articles:create')
   queryset = Paragraph.objects.none()
   if (request.method == 'POST'):
@@ -53,7 +53,7 @@ def ArticleCreate(request):
   else:
     context['article'] = articleForm(prefix='article')
     context['paragraphs'] = paragraphFormset(prefix='paragraphs', queryset=queryset)
-  return render_to_response(['article/form.html', 'form.html'], context)
+  return render(request, ['article/form.html', 'form.html'], context)
 
 def ArticleUpdate(request, pk):
   articleForm = modelform_factory(Article, fields=('title', 'view_mode'))
@@ -64,7 +64,7 @@ def ArticleUpdate(request, pk):
   }
   paragraphFormset = inlineformset_factory(Article, Paragraph, **formset_config)
 
-  context = RequestContext(request)
+  context = {} 
   context['action'] = reverse_lazy('articles:update', kwargs={'pk': pk})
   article = Article.objects.get(id=pk)
   queryset = Paragraph.objects.order_by('ordinal')
@@ -82,7 +82,7 @@ def ArticleUpdate(request, pk):
     context['article'] = articleForm(instance=article, prefix='article')
     context['paragraphs'] = paragraphFormset(instance=article, prefix='paragraphs', queryset=queryset)
 
-  return render_to_response(['article/form.html', 'form.html'], context)
+  return render(request, ['article/form.html', 'form.html'], context)
 
 #----
 class ArticleDelete(DeleteView):
