@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block body %}
+<form method="post"> {% csrf_token %}
+  <p> Confirm deleting article "{{ object.title }}" </p>
+  <input type="submit" value="Confirm" />
+</form>
+{% endblock body %}

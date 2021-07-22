@@ -87,7 +87,7 @@ def ArticleUpdate(request, pk):
 #----
 class ArticleDelete(DeleteView):
   model = Article
-  success_url = reverse_lazy('list')
+  success_url = reverse_lazy('articles:list')
 
   def get_context_data(self, **kwargs):
     context = super(ArticleDelete, self).get_context_data(**kwargs)
