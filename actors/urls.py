@@ -2,6 +2,7 @@ from django.conf.urls import url
 
 from actors import views
 
+app_name = 'actors'
 urlpatterns = [
   url(r'actor/$', views.ActressList.as_view(), name='list'),
   url(r'actor/(?P<pk>\d+)/$', views.ActressView.as_view(), name='view'),

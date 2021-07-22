@@ -2,6 +2,7 @@ from django.conf.urls import url
 
 from first import views
 
+app_name = 'first'
 urlpatterns = [ 
   url(r'first/$', views.FirstList.as_view(), name='list'),
   url(r'first/(?P<pk>\d+)/$', views.FirstView.as_view(), name='view'),

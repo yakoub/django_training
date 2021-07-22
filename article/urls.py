@@ -2,6 +2,7 @@ from django.conf.urls import url
 
 from article import views
 
+app_name = 'articles'
 urlpatterns = [
   url(r'articles/$', views.ArticleList.as_view(), name='list'),
   url(r'partials/articles/(?P<pk>\d+)/$', views.ArticleView.as_view(), name='view'),
