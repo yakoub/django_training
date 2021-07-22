@@ -5,7 +5,7 @@ from django.forms.models import inlineformset_factory, modelform_factory, modelf
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from article.models import Article, Paragraph 
 from django import forms
 import logging
