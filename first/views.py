@@ -39,7 +39,7 @@ class FirstUpdate(FirstFormMixin, UpdateView):
 #----
 class FirstDelete(DeleteView):
   model = First
-  success_url = reverse_lazy('list')
+  success_url = reverse_lazy('first:list')
 
   def get_context_data(self, **kwargs):
     context = super(FirstDelete, self).get_context_data(**kwargs)

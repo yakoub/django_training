@@ -32,7 +32,7 @@ class ActressUpdate(ActressFormMixin, UpdateView):
 #----
 class ActressDelete(DeleteView):
   model = Actress
-  success_url = reverse_lazy('list')
+  success_url = reverse_lazy('actors:list')
 
   def get_context_data(self, **kwargs):
     context = super(ActressDelete, self).get_context_data(**kwargs)
@@ -84,7 +84,7 @@ class AwardUpdate(UpdateView):
 #----
 class AwardDelete(DeleteView):
   model = Award
-  success_url = reverse_lazy('list')
+  success_url = reverse_lazy('actors:list')
 
   def get_context_data(self, **kwargs):
     context = super(AwardDelete, self).get_context_data(**kwargs)
