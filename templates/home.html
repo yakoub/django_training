@@ -1,9 +1,33 @@
 {% extends "base.html" %}
 {% block body %}
   <h2> home </h2>
-  <ul>
-    <li> <a href="{% url 'first:list' %}"> first </a> </li>
-    <li> <a href="{% url 'actors:list' %}"> actors </a> </li>
-    <li> <a href="{% url 'articles:list' %}"> articles </a> </li>
-  </ul>
+  <nav class="home">
+    <section>
+      <a href="{% url 'first:list' %}">
+        <h3>first  application </h3>
+      </a>
+      <p>
+        is very basic implementation using generic views . <br>
+        first also shows basic language translation implementation .
+      </p>
+    </section>
+    <section>
+      <a href="{% url 'actors:list' %}">
+        <h3>actors application </h3>
+      </a>
+      <p>
+        implement relation between models and uses prefetch_related when displaying ojbect listing to optimize databse access .
+      </p>
+    </section>
+    <section>
+      <a href="{% url 'articles:list' %}">
+        <h3> articles application </h3>
+      </a>
+      <p>
+        implement multiple paragraph structure using formsets . <br>
+        also uses angularsjs to browse content in single page . <br>
+        and implements javascript for dragging article paragraphs in edit form .
+      </p>
+    </section>
+  </nav>
 {% endblock body %}

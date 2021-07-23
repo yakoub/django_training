@@ -6,19 +6,16 @@ body.he {
   font-family: "Open Sans Hebrew";
 }
 
-#page-wrapper {
-  width: 100%;
+body {
+  display : flex;
+  justify-content: center;
 }
 
 #page {
-  width: 80%;
-  margin: 0 auto;
+  min-width: 32ex;
+  max-width: 100%;
   background-color: #eee;
-  padding: 10px 1%;
-}
-
-.clearfix {
-  overflow: auto;
+  padding: 2ex 1%;
 }
 
 /* pager */
