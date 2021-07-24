@@ -1,0 +1,11 @@
+nav.home {
+  padding: 0 4em;
+}
+nav.home section {
+  font-size: 120%;
+}
+@media (min-width: 621px) {
+  nav.home section {
+    font-size: 150%;
+  }
+}
