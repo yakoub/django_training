@@ -10,4 +10,4 @@ first also shows basic language translation implementation .
 also uses angularsjs to browse content in single page .  
 and implements javascript for dragging article paragraphs in edit form .  
 
-live version : django.yakoub.xyz
+live version : https://django.yakoub.xyz
